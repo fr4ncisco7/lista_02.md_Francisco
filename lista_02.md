@@ -13,8 +13,11 @@ print(a)
 - Resolva as questões com uso do Visual Studio Code ou ambiente similar.
 - Teste seus códigos antes de trazer a resposta para cá.
 - Cuidado com ChatGPT e afins: entregar algo só para ganhar nota não faz você aprender e ficar mais inteligente. Não seja dependente da máquina! (E não se envolva em plágio!)
-- ao final, publique seu arquivo lista_02.md com as respostas em seu repositório, e envie o link pela Adalove. 
+- ao final, publique seu arquivo lista_02.md com as respostas em seu repositório, e envie o link pela Adalove.
 
+Nome: Francisco de Araujo Ferreira Filho
+
+obs: ( <------------------ ) para a resposta correta
 # Questões objetivas
 
 **1)** Considere o seguinte código JavaScript:
@@ -41,7 +44,7 @@ console.log("O produto dos valores é:", produto);
 ```
 Qual das seguintes alternativas melhor descreve o que o código faz?
 
-A) O código avalia a expressão booleana, imprime `true`, calcula o produto dos números na lista e imprime o resultado no console.
+A) O código avalia a expressão booleana, imprime `true`, calcula o produto dos números na lista e imprime o resultado no console. <--------------------------
 
 B) O código avalia a expressão booleana, imprime `false`, calcula o produto dos números na lista e imprime o resultado no console.
 
@@ -129,7 +132,7 @@ Qual das seguintes alternativas melhor descreve o comportamento do código?
 
 A) O código verifica se a idade indica um adulto ou um idoso e exibe a mensagem correspondente.
 
-B) O código verifica se a idade pertence à faixa adulta. Se for, exibe "Você é um adulto!". Caso contrário, verifica se é menor de idade e exibe "Você é menor de idade!". Se nenhuma das condições anteriores for verdadeira, exibe "Você está na melhor idade!".
+B) O código verifica se a idade pertence à faixa adulta. Se for, exibe "Você é um adulto!". Caso contrário, verifica se é menor de idade e exibe "Você é menor de idade!". Se nenhuma das condições anteriores for verdadeira, exibe "Você está na melhor idade!". <---------------------------------
 
 C) O código verifica se a idade está entre 18 e 60 anos e, se for, imprime "Você é um adulto!". Se não estiver nesse intervalo, imprime "Você está na melhor idade!".
 
