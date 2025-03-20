@@ -435,6 +435,89 @@ Considere a fórumla de atualização velocidade:
     velocidade = velocidadeInicial - desaceleracao * tempo
 ```
 Seu programa deve determinar quanto tempo será necessário para que a sonda atinja uma velocidade segura de pouso, sem ultrapassar os limites estabelecidos.
+
+Resposta:
+
+Em pseudocódigo:
+```
+velocidadeInicial = 15000; // m/s
+desaceleracao = 20; // m/s²
+velocidadeSegura = 5; // m/s
+tempoMaximo = 650; // segundos
+desaceleracaoMinima = 4; // m/s²
+tempo = 0;
+
+FUNÇÃO TempoDePouso(velocidadeInicial, desaceleracao, velocidadeSegura, tempoMaximo, desaceleracaoMinima)
+    velocidade = velocidadeInicial
+
+    POR ENQUANTO velocidade > velocidadeSegura:
+        velocidade = velocidadeInicial - (desaceleracao * tempo)
+
+        SE tempo > tempoMaximo:
+            EXIBIR "Tempo máximo de descida excedido. Cancelar pouso"
+            RETORNAR
+        FIM SE // Adicionado FIM SE
+
+        SE desaceleracao < desaceleracaoMinima:
+            EXIBIR "Desaceleração abaixo do limite. Cancelar pouso"
+            RETORNAR
+        FIM SE // Adicionado FIM SE
+
+        tempo = tempo + 1
+    FIM POR ENQUANTO // Adicionado FIM POR ENQUANTO
+
+    EXIBIR "O Pouso foi concluído com sucesso!"
+    EXIBIR "O tempo de descida foi ", tempo, " segundos e a velocidade final foi ", velocidade, "ms" // Formatação de string não padrão em pseudocódigo
+FIM FUNÇÃO // Adicionado FIM FUNÇÃO
+
+TempoDePouso(velocidadeInicial, desaceleracao, velocidadeSegura, tempoMaximo, desaceleracaoMinima)
+
+
+
+```
+
+Em código JS:
+```javascript
+// Exemplo de uso
+//Definindo os valores para testar o código se está funcionando corretamente
+let velocidadeInicial = 15000; // m/s
+let desaceleracao = 20; // m/s²
+let velocidadeSegura = 5; // m/s
+let tempoMaximo = 650; // segundos
+let desaceleracaoMinima = 4; // m/s²
+let tempo = 0;
+
+//Função que irá fazer todo o cálculo e análise
+function TempoDePouso(velocidadeInicial, desaceleracao, velocidadeSegura, tempoMaximo, desaceleracaoMinima) {
+  let velocidade = velocidadeInicial;
+
+  while (velocidade > velocidadeSegura) {
+    velocidade = velocidadeInicial - (desaceleracao * tempo);
+
+    //Analisando se o tempo ultrapassou o tempo limite
+    if (tempo > tempoMaximo) {
+      console.log('Tempo máximo de descida excedido. Cancelar pouso');
+      return;
+    }
+
+    //Analisando se a desaceleração está menor que a desaceleração limite
+    if (desaceleracao < desaceleracaoMinima) {
+      console.log('Desaceleração abaixo do limite. Cancelar pouso');
+      return;
+    }
+
+    //Contagem do tempo
+    tempo += 1; // Incremento do tempo após o cálculo da velocidade
+  }
+
+  //Se nenhum if for verdadeiro o pouso é concluido
+  console.log('O Pouso foi concluído com sucesso!');
+  console.log(`O tempo de descida foi ${tempo} segundos e a velocidade final foi ${velocidade.toFixed(2)}ms`);
+}
+
+//Chamando a função para fazer a análise dos valores
+TempoDePouso(velocidadeInicial, desaceleracao, velocidadeSegura, tempoMaximo, desaceleracaoMinima);
+```
 ______
 
 **10)** Em um sistema de análise financeira, as operações de investimento de uma empresa podem ser representadas por matrizes, onde cada linha representa um tipo de investimento e cada coluna representa um período de tempo.
