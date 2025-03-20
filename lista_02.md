@@ -249,8 +249,10 @@ Pedidos de R$200,00 ou mais → "Frete grátis!"
 ```
 Implemente um pseudocódigo que receba o valor total da compra e exiba a classificação correta do frete para o cliente.
 
-Resposta
-```javascript
+Resposta:
+
+Em pseudocódigo:
+```
 //Declarando a variável
 VAR valorDaCompra = 180.00;
 
@@ -261,6 +263,29 @@ SENÃO SE valorDaCompra >= 50  && valorDaCompra <= 199.99
     ENTÂO EXIBA "Frete com custo adicional!";
 SENÃO //O valorDaCompra > 200,00
     ENTÃO EXIBA "Frete grátis!"
+
+```
+
+Em código JS:
+```javascript
+//Definindo o valor da compra
+var valorDaCompra = 180.00
+
+//Se o valor da compra for menor que 50
+if (valorDaCompra < 50.00) {
+    console.log('Frete indiponível!')
+}
+
+//se o valor da compra estiver entre 50 a 199.99
+else if (valorDaCompra >= 50 && valorDaCompra <= 199.99) {
+    console.log('Frete com custo adicional!')
+}
+
+//Logo valor da compra = 200
+else {
+    console.log('Frete gratis!')
+}
+
 
 ```
 ______
@@ -280,6 +305,123 @@ Método CalcularConsumo():
 ```
 Implementação genérica para cálculo de consumo, a ser sobrescrita pelas subclasses.
 Agora, implemente as classes Carro e Moto, garantindo que ambas herdem de Veiculo e possuam métodos específicos para calcular o consumo de combustível com base na quilometragem e eficiência do veículo.
+
+Resposta:
+
+Em pseudocódigo:
+```
+Classe Veiculo:
+Atributos:
+
+modelo
+ano
+Método Construtor(modelo, ano):
+
+Define os valores dos atributos modelo e ano com os valores passados como parâmetro.
+Método CalcularConsumo():
+EXIBIR 'O método calcular consumo deve ser feito de forma específica nas subclasses'
+
+
+Método Apresentar():
+EXibir O seu veículo é um ${this.modelo} de ${this.ano}. // Formatação de string não padrão em pseudocódigo
+
+Classe Carro EXTENDE da classe veiculo // EXTENDE em vez de EXTENSÃO
+atributos:
+
+
+distancia
+eficiencia
+método super(modelo, ano): // Ordem incorreta: SUPER deve ser a primeira chamada no construtor
+metodo constructor(distancia, eficiencia)
+
+Define os valores dos atributos distancia e eficiencia com os valores passados como parâmetro.
+método calcularConsumo():
+EXIBIR `Tendo em vista que seu carro percorreu ${distancia}KM com uma eficiência de ${eficiencia)}Km/L o consumo dele é de ${distancia / eficiencia}L` // Formatação de string não padrão
+
+Apresentar()
+EXIBIR `O seu carro é um ${modelo} de ${ano} que possui uma eficiência de ${eficiencia}Km/L` // Formatação de string não padrão
+
+Classe Moto EXTENDE da classe veiculo // EXTENDE em vez de EXTENSÃO
+atributos:
+
+
+distancia
+eficiencia
+método super(modelo, ano): // Ordem incorreta: SUPER deve ser a primeira chamada no construtor
+metodo constructor(distancia, eficiencia)
+
+Define os valores dos atributos distancia e eficiencia com os valores passados como parâmetro.
+método calcularConsumo():
+EXIBIR `Tendo em vista que sua moto percorreu ${distancia}KM com uma eficiência de ${eficiencia)}Km/L o consumo dele é de ${distancia / eficiencia}L` // Formatação de string não padrão e erro de texto "seu carro"
+
+Apresentar()
+EXIBIR `A sua moto é um ${modelo} de ${ano} que possui uma eficiência de ${eficiencia}Km/L` // Formatação de string não padrão
+
+```
+
+Em código JS:
+```javascript
+//Classe Pai
+class Veiculo { 
+    //Atribuindo os atributos / características
+    constructor(modelo, ano){ 
+        this.modelo = modelo; 
+        this.ano = ano;
+    }
+
+    //Método que calcula o consumo
+    CalcularConsumo(){
+        console.log('O método calcular consumo deve ser feito de forma específica nas subclasses') 
+    }
+
+    //Método que apresenta o veículo
+    Apresentar(){
+        console.log(`O seu veículo é um ${this.modelo} de ${this.ano}.`)
+    }
+
+}
+//Classe filho
+class Carro extends Veiculo{
+    //Atribuindo os atributos
+    constructor(modelo, ano, distancia, eficiencia){
+        super(modelo, ano); //Puxa os elementos da classe pai
+        this.distancia = distancia;
+        this.eficiencia = eficiencia
+    }
+    
+    //Calcula o consumo do carro
+    CalcularConsumo(){
+        console.log(`Tendo em vista que seu carro percorreu ${(this.distancia).toFixed(2)}KM com uma eficiência de ${(this.eficiencia).toFixed(2)}Km/L o consumo dele é de ${(this.distancia / this.eficiencia).toFixed(2)}L`)
+    }
+
+    //Apresenta o carro
+    Apresentar(){
+        console.log(`O seu carro é um ${this.modelo} de ${this.ano} que possui uma eficiência de ${(this.eficiencia).toFixed(2)}Km/L`)
+    }
+}
+
+//Classe filho
+class Moto extends Veiculo{
+    //Atributos da classe moto
+    constructor(modelo, ano, distancia, eficiencia){
+        super(modelo, ano); //Puxando os elementos da classe pai
+        this.distancia = distancia;
+        this.eficiencia = eficiencia
+    }
+
+    //Calcula o consumo da moto
+    CalcularConsumo(){
+        console.log(`Tendo em vista que sua moto percorreu ${(this.distancia).toFixed(2)}KM com uma eficiência de ${(this.eficiencia).toFixed(2)}Km/L o consumo dele é de ${(this.distancia / this.eficiencia).toFixed(2)}L`)
+    }
+
+    //Apresenta a moto
+    Apresentar(){
+        console.log(`A sua moto é uma  ${this.modelo} de ${this.ano} que possui uma eficiência de ${(this.eficiencia).toFixed(2)}Km/L`)
+    }
+
+}
+
+```
 ______
 
 **9)** Você é um cientista da NASA e está ajudando no desenvolvimento de um sistema de pouso para sondas espaciais em Marte. Seu objetivo é calcular o tempo necessário para que a sonda reduza sua velocidade até um nível seguro para pouso, considerando uma velocidade inicial de entrada na atmosfera marciana e uma taxa de desaceleração constante causada pelo atrito atmosférico e retrofoguetes.
